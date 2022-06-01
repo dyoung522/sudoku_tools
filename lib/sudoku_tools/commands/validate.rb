@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 module SudokuTools
   module Commands
     class Validate
-      def initialize
-        puts "Validating..."
-      end
+      # Do something here
+      nil
     end
   end
 end

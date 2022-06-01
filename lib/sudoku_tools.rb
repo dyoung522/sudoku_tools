@@ -2,6 +2,7 @@
 
 require "thor"
 
+require_relative "sudoku_tools/puzzle"
 require_relative "sudoku_tools/version"
 require_relative "sudoku_tools/commands/validate"
 
