@@ -19,8 +19,20 @@ module SudokuTools
         @position[1]
       end
 
+      def column=(number)
+        raise ArgumentError, "Invalid column number" unless number >= 1 && number <= 9
+
+        @position[1] = number
+      end
+
       def row
         @position[0]
+      end
+
+      def row=(number)
+        raise ArgumentError, "Invalid row number" unless number >= 1 && number <= 9
+
+        @position[0] = number
       end
 
       def add(*numbers)

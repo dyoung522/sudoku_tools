@@ -61,6 +61,8 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.18.0)
       parser (>= 3.1.1.0)
+    rubocop-minitest (0.20.0)
+      rubocop (>= 0.90, < 2.0)
     ruby-progressbar (1.11.0)
     shellany (0.0.1)
     thor (1.2.1)
@@ -80,6 +82,7 @@ DEPENDENCIES
   pry (~> 0.14.1)
   rake (~> 13.0)
   rubocop (~> 1.21)
+  rubocop-minitest (~> 0.20.0)
   sudoku_tools!
   yard (~> 0.9)
 

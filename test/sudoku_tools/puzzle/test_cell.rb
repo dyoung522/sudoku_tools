@@ -17,8 +17,26 @@ module SudokuTools
         assert_equal 1, @cell.row
       end
 
+      def test_cell_row_add
+        @cell.row = 2
+        assert_equal 2, @cell.row
+      end
+
+      def test_cell_row_raises_when_invalid
+        assert_raises(ArgumentError) { @cell.row = 0 }
+      end
+
       def test_cell_column
         assert_equal 2, @cell.column
+      end
+
+      def test_cell_column_add
+        @cell.column = 1
+        assert_equal 1, @cell.column
+      end
+
+      def test_cell_column_raises_when_invalid
+        assert_raises(ArgumentError) { @cell.column = 0 }
       end
 
       def test_cell_box
@@ -39,7 +57,7 @@ module SudokuTools
 
       def test_cell_remove_single_possibility
         @cell.remove 5
-        assert_equal [], @cell.posibilities
+        assert_empty @cell.posibilities
       end
 
       def test_cell_remove_mulitple_possibilities
