@@ -40,9 +40,9 @@ module SudokuTools
       end
 
       def test_cell_box
-        assert_equal [1, 1], Cell.new(row: 2, column: 2).box
-        assert_equal [2, 2], Cell.new(row: 5, column: 5).box
-        assert_equal [3, 3], Cell.new(row: 8, column: 8).box
+        assert_equal 1, Cell.new(row: 2, column: 2).box
+        assert_equal 5, Cell.new(row: 5, column: 5).box
+        assert_equal 9, Cell.new(row: 8, column: 8).box
       end
 
       def test_cell_add_single_possibility

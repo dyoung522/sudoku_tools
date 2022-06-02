@@ -11,10 +11,17 @@ module SudokuTools
         @solution = solution # the solution for this cell or 0
       end
 
+      # Returns an integer representing the box number (1-9)
       def box
-        [((row - 1) / 3) + 1, ((column - 1) / 3) + 1]
+        col = (column - 1) / 3
+
+        return col + 1 if row <= 3
+        return col + 4 if row <= 6
+
+        col + 7
       end
 
+      # Returns an integer representing the column (1-9)
       def column
         @position[1]
       end
@@ -25,6 +32,7 @@ module SudokuTools
         @position[1] = number
       end
 
+      # Returns an integer representing the row (1-9)
       def row
         @position[0]
       end
