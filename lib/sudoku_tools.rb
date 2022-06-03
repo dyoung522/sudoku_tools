@@ -25,18 +25,20 @@ module SudokuTools
 
   # CLI command definitions
   class CLI < Thor
+    class_option :color, type: :boolean
+
     desc "validate", "Validates a completed sudoku puzzle"
-    method_option :file, required: true
+    option :file, required: true
     def validate
       matrix = SudokuTools.read_matrix(options.fetch(:file))
-      Commands::Validate.run(matrix:)
+      Commands::Validate.run(options.merge(matrix:))
     end
 
     desc "print", "Pretty Prints the given puzzle"
-    method_option :file, required: true
+    option :file, required: true
     def print
       matrix = SudokuTools.read_matrix(options.fetch(:file))
-      Commands::Print.run(matrix:)
+      Commands::Print.run(matrix:, **options)
     end
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "terminal-table"
+require "tty-table"
 
 module SudokuTools
   module Commands
@@ -8,14 +8,18 @@ module SudokuTools
       attr_reader :table
 
       def self.run(opts)
-        puts new(opts).table.render
+        renderer = TTY::Table::Renderer::Unicode.new(new(opts).table)
+
+        renderer.padding = [0, 1]
+        renderer.border.separator = :each_row
+        renderer.border.style = :blue
+        renderer.filter = ->(val, _row, _col) { val.to_i.zero? ? "" : val }
+
+        puts renderer.render
       end
 
       def initialize(opts)
-        @table = Terminal::Table.new do |t|
-          t.rows = opts.fetch(:matrix)
-          t.style = { all_separators: true }
-        end
+        @table = TTY::Table.new rows: opts.fetch(:matrix)
       end
     end
   end
