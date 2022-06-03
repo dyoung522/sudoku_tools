@@ -2,7 +2,6 @@
 
 module SudokuTools
   module Commands
-    class TestPrint < Minitest::Test
-    end
+    # class TestPrint < Minitest::Test; end
   end
 end
