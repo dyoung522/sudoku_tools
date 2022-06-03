@@ -26,7 +26,7 @@ module SudokuTools
         [8, 9, 1, 2, 3, 4, 5, 6, 7],
         [3, 4, 5, 6, 7, 8, 9, 1, 2],
         [6, 7, 8, 9, 1, 2, 3, 4, 5],
-        [1, 1, 2, 3, 4, 5, 6, 7, 8]
+        [9, 1, 2, 3, 4, 5, 6, 7, 9]
       ].freeze
 
       def setup
@@ -45,7 +45,7 @@ module SudokuTools
 
       def test_grid_not_valid
         refute_predicate(@grid_invalid, :valid?)
-        assert_equal(["Column 1 is invalid", "Box 7 is invalid", "Row 9 is invalid"], @grid_invalid.errors)
+        assert_equal(["Row 9 is invalid", "Column 9 is invalid", "Box 9 is invalid"], @grid_invalid.errors)
       end
 
       def test_grid_row
@@ -64,14 +64,6 @@ module SudokuTools
         assert_equal [1, 2, 3, 4, 5, 6, 7, 8, 9], @grid.box(1).map(&:solution)
         assert_equal [5, 6, 7, 8, 9, 1, 2, 3, 4], @grid.box(5).map(&:solution)
         assert_equal [9, 1, 2, 3, 4, 5, 6, 7, 8], @grid.box(9).map(&:solution)
-      end
-
-      def test_grid_read_valid
-        assert_predicate(Grid.read("test/fixtures/matrix.valid"), :valid?)
-      end
-
-      def test_grid_read_invalid
-        assert_raises(ArgumentError) { Grid.read("test/fixtures/matrix.invalid") }
       end
     end
   end

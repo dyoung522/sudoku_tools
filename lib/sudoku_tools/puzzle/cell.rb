@@ -3,7 +3,7 @@
 module SudokuTools
   module Puzzle
     class Cell
-      attr_reader :posibilities
+      attr_reader :posibilities, :position
 
       def initialize(row:, column:, solution: 0)
         @position = [row, column] # The position in the grid: [row, column]

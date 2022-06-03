@@ -11,9 +11,10 @@ module SudokuTools
 
   # CLI command definitions
   class CLI < Thor
-    desc "Validate a puzzle", "Validates a completed sudoku puzzle"
+    desc "validate", "Validates a completed sudoku puzzle"
+    method_option :file, required: true
     def validate
-      Commands::Validate.new
+      Commands::Validate.run(options)
     end
   end
 end

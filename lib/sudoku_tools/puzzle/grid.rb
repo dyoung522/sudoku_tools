@@ -7,17 +7,6 @@ module SudokuTools
     class Grid
       attr_reader :errors, :matrix, :puzzle
 
-      def self.read(input_file)
-        matrix = []
-
-        File.read(input_file).split.each do |line|
-          matrix << line.chars.map(&:to_i) if line =~ /\d{9}/
-          matrix << line.split(",").map(&:to_i) if line =~ /\d\s*,\s*\d/
-        end
-
-        Grid.new matrix
-      end
-
       def initialize(matrix)
         @matrix = matrix
         @puzzle = []
@@ -44,7 +33,9 @@ module SudokuTools
         result = true
 
         (1..9).each do |num|
-          result = false unless validate_row(num) && validate_column(num) && validate_box(num)
+          result = false unless validate_row(num)
+          result = false unless validate_column(num)
+          result = false unless validate_box(num)
         end
 
         result
