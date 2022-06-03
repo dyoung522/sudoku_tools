@@ -14,6 +14,19 @@ To use:
 
 When necessary, the tool will read a text file containing 9 lines of numbers, where each line represents a row in your puzzle. Use `0` to indicate blank entries.
 
+example:
+```text
+123456789
+456789123
+789123456
+234567891
+567891234
+891234567
+345678912
+678912345
+912345678
+```
+
 ### Available Commands
 
 - `validate`: Validates a given puzzle
