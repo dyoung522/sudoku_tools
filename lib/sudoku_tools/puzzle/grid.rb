@@ -33,9 +33,7 @@ module SudokuTools
         result = true
 
         (1..9).each do |num|
-          result = false unless validate_row(num)
-          result = false unless validate_column(num)
-          result = false unless validate_box(num)
+          result = ![validate_row(num), validate_column(num), validate_box(num)].include?(false)
         end
 
         result
